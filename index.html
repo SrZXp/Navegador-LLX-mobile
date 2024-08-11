@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LLX</title>
+    <title>LLX Mobile Emulado</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             background-color: #121212; /* Preto */
             color: #E0E0E0; /* Cinza claro */
-            text-align: center;
             margin: 0;
             padding: 0;
+            text-align: center;
         }
         .container {
             display: flex;
@@ -19,10 +19,10 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            padding: 0 20px; /* Adiciona espaçamento nas laterais */
+            padding: 0 20px;
         }
         .logo {
-            font-size: 3rem; /* Tamanho da fonte ajustado para dispositivos móveis */
+            font-size: 2rem; /* Tamanho da fonte ajustado para dispositivos móveis */
             color: #9C27B0; /* Roxo */
             margin-bottom: 20px;
         }
@@ -36,6 +36,7 @@
             padding: 10px;
             width: 100%; /* Ajusta a largura para dispositivos móveis */
             max-width: 500px; /* Limita a largura máxima */
+            margin-bottom: 20px;
         }
         .search-box input {
             border: none;
@@ -59,21 +60,43 @@
         .search-box button:hover {
             background-color: #7B1FA2; /* Roxo mais escuro */
         }
+        .phone {
+            width: 360px; /* Largura do "celular" */
+            height: 640px; /* Altura do "celular" */
+            border: 16px solid #000; /* Borda do "celular" */
+            border-radius: 36px; /* Cantos arredondados */
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Sombra para simular profundidade */
+            overflow: hidden;
+            margin-top: 20px;
+            background-color: #fff; /* Fundo branco para a área do telefone */
+            position: relative;
+        }
+        .phone iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="logo">LLX</div>
         <div class="search-box">
-            <input type="text" id="search-query" placeholder="Pesquisar no GitHub..." onkeypress="checkEnter(event)">
+            <input type="text" id="search-query" placeholder="Pesquisar no Google..." onkeypress="checkEnter(event)">
             <button onclick="search()">Pesquisar</button>
         </div>
+        <div class="phone">
+            <iframe id="phone-frame" src="about:blank"></iframe>
+        </div>
     </div>
+    <script async src="https://cse.google.com/cse.js?cx=708108e1b258c4cf6"></script>
     <script>
         function search() {
             var query = document.getElementById('search-query').value;
+            var frame = document.getElementById('phone-frame');
             if (query) {
-                window.location.href = 'https://github.com/search?q=' + encodeURIComponent(query);
+                // Carrega a pesquisa no Google CSE
+                frame.src = 'https://www.google.com/search?q=' + encodeURIComponent(query);
             }
         }
 
