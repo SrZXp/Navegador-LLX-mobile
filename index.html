@@ -65,7 +65,7 @@
     <div class="container">
         <div class="logo">LLX</div>
         <div class="search-box">
-            <input type="text" id="search-query" placeholder="Pesquisar..." onkeypress="checkEnter(event)">
+            <input type="text" id="search-query" placeholder="Pesquisar no GitHub..." onkeypress="checkEnter(event)">
             <button onclick="search()">Pesquisar</button>
         </div>
     </div>
@@ -73,7 +73,7 @@
         function search() {
             var query = document.getElementById('search-query').value;
             if (query) {
-                window.location.href = 'https://www.google.com/search?q=' + encodeURIComponent(query);
+                window.location.href = 'https://github.com/search?q=' + encodeURIComponent(query);
             }
         }
 
